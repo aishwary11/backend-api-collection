@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: 4.2.0 PAN
+  version: 1.0.0
+servers:
+  - url: https://uatapi.smfgindiacredit.com:8243
+  - url: https://uatapi.smfgindiacredit.com:9443
+paths:
+  /ismicc/iwhsmicc/panVerification/1.0.0/whpanProcess:
+    post:
+      tags:
+        - General
+      summary: pan iwh
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: '"[{\"name\":\"pan\",\"value\":\"BTGPS5913L\"}]"'
+      parameters:
+        - name: Authorization
+          in: query
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJ4NXQiOiJPRFU0TVdJM01XUTFNalUwT0RnNVl6TTRPV05pTldaaE9UVXhZell3WldWa00yWmtPVGhtWW1FeFlXUTVPRFF6WWpJeVpUQXpaalZrTkRsaU5EWmxPQSIsImtpZCI6Ik9EVTRNV0kzTVdRMU1qVTBPRGc1WXpNNE9XTmlOV1poT1RVeFl6WXdaV1ZrTTJaa09UaG1ZbUV4WVdRNU9EUXpZakl5WlRBelpqVmtORGxpTkRabE9BX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI4MjdlZTQ5MC1mZWFiLTQ5YWQtYTVlYy1mMjgyOGU5YjQ0YjkiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoib1NLd3lCbEg1alFyWnV1elc5WmY1R3JuYkpvYSIsIm5iZiI6MTcwMTI1MzEzMiwiYXpwIjoib1NLd3lCbEg1alFyWnV1elc5WmY1R3JuYkpvYSIsInNjb3BlIjoiZGVmYXVsdCIsImlzcyI6Imh0dHBzOlwvXC8xOTIuMTY4Ljg0LjE4MDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJpYXQiOjE3MDEyNTMxMzIsImp0aSI6IjU3YzA3Nzg4LWQyMDYtNDc3Yy1iMjg5LTIyODVmMTllMTM2YyIsImNsaWVudF9pZCI6Im9TS3d5QmxINWpRclp1dXpXOVpmNUdybmJKb2EifQ.zQXIAexhWPzu8NL8f4f3p1S_JMAYZInUi3eJEsg_Q5mSCiLUo5bN2mGSWVTfZAn8GPEgEhgscULp0wkaqTSBA7O2aAtyGYi7m53MSsILUs9AszOzgc6M_Zq_GdorXlLseK3LT3hg_DqMhFD_31DlZQ_tCGAnVGLKEs1XG2I7kUodMVnwOl7BrraaesTO_csfIwkyag9HEVV3qcFYeAKkYr9-G8KhIOm9-yf4IYojcIeOKROEvMzuIrWQ7PU8LBvv0fExYmht-vVaO9pZ-jFr2R83b8rJmidtriB9j2RpOoVO8NF9M0BBuBLgGXJwqQKukvlLsRZ-iAJ4IIcKeN5r1g
+        - name: Username
+          in: query
+          schema:
+            type: string
+          example: nsdl
+        - name: Content-Type
+          in: query
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /ismicc/panVerification/1.0.0/panProcess:
+    post:
+      tags:
+        - General
+      summary: pan ismicc
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                DataRequest: >-
+                  {"pan":"BTGPS5913L","applicantType":"Individual","employementType":"self
+                  employed","constitutionType":""}
+                key: ''
+      parameters:
+        - name: Username
+          in: header
+          schema:
+            type: string
+          example: SMFGFitTester
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJ4NXQiOiJPRFU0TVdJM01XUTFNalUwT0RnNVl6TTRPV05pTldaaE9UVXhZell3WldWa00yWmtPVGhtWW1FeFlXUTVPRFF6WWpJeVpUQXpaalZrTkRsaU5EWmxPQSIsImtpZCI6Ik9EVTRNV0kzTVdRMU1qVTBPRGc1WXpNNE9XTmlOV1poT1RVeFl6WXdaV1ZrTTJaa09UaG1ZbUV4WVdRNU9EUXpZakl5WlRBelpqVmtORGxpTkRabE9BX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI0NDc3MzVmMi1hNTRkLTQ1MmYtYWE0Ny1hNjliZjVkNzU3ZTciLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IlRncUQwZjdZeWxIUjF2Mm1OQ3lZTUZRRHRGQWEiLCJuYmYiOjE3MDIyOTMxMjUsImF6cCI6IlRncUQwZjdZeWxIUjF2Mm1OQ3lZTUZRRHRGQWEiLCJzY29wZSI6ImRlZmF1bHQiLCJpc3MiOiJodHRwczpcL1wvMTkyLjE2OC44NC4xODA6OTQ0M1wvb2F1dGgyXC90b2tlbiIsImV4cCI6OTIyMzM3MjAzNjg1NDc3NSwiaWF0IjoxNzAyMjkzMTI1LCJqdGkiOiJhZWIyZTBmMC1hNmViLTRkMzEtOTIyMC1kYjhlMmVjOGU3ZDEiLCJjbGllbnRfaWQiOiJUZ3FEMGY3WXlsSFIxdjJtTkN5WU1GUUR0RkFhIn0.hsepRZt2SP_vY-ISt8VjbrAPcDXf4ZGXGUS-9FQKAE9GrslkIt0riFuDVt4LNhZbC5KON-Rd7sIL4kOEAm-HNQ9wIHbrgSbGHpwJW58LM7WSG_H6BXwsBA0nny5rZvt_uEB6EwFjyzuKV9IG-_iVtzrJAQ8vbzT6vodNROxVoW-1szi5l7G7yyjaqN6gD6th8p9ZeB3fWHDLoqnseOvjxdRhbUR0VutjqDHCVtLQETgqqJDDXvlSngAP-a_wVEu5iP93MoCLxXCBO15FyB-Zd37tE2IcW5YVBUVfTjnl2RYxT7DvGyvGR6fkFI-OUlx6G13J8Oh7sHcu7JpqoRGTHQ
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /oauth2/token:
+    post:
+      tags:
+        - General
+      summary: oauth2/token
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  example: password
+                username:
+                  type: string
+                  example: VAPTUser
+                password:
+                  type: string
+                  example: V@ptusr#4312
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Basic
+            SzhzTktIYmR5UWc4X0xtNzZUYk9xZUtkanRrYTpHREVaWVhvMklHUGJRMHJEVlZ4OXJPN1p5aElh
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: MIFIN_WSO2
+  version: 1.0.0
+servers:
+  - url: https://uatapi.smfgindiacredit.com
+  - url: https://uatapi.smfgindiacredit.com:8243
+paths:
+  /esmicc/charge/1.0.0/chargeCreation.do:
+    post:
+      tags:
+        - General
+      summary: ChargeAPI
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              type: string
+              example: >-
+                "{\"key\":\"cFxElnEw+J82pc9/rmvt/Oq3MgJKQRRYIRMLHJ4H3kKnXfCHi0a6gPlVk6JjlgnhtOWnxkxvsqImlaadV6D67nNQ9JmNOWb4YzX0BC2KaBUhy7Lca+QcbJTAEoaQ1XVU1Ip985GnRsuGIDtS+xioVJ8rNSdybyDwA5uAU2N63Tw=\",\"DataRequest\":\"NRu/kYSYyqIft8YnGykJu0FsLOFoON23xzi4M7R+ax/7W3HMmN+dcGw1VJwqBO/TfTlPC2X7M8Z/gssTTfwb7q6D9VFHbeMl78fD4pRwut+vbp9MsgOs/F4DkM3iFE1UFT1MHQZJLw3pTX050JlM4/uJtECF3N4KcPV5u2biMoDOtdOsF1D7xEb/WIlj6F1nErHUS5tA9ycd+xV31ZI+s92kI1IkTgNULJBKP7xydHA1RfD+2o0sOfYPBQh0UOjL1xtjuDJnMoXV0WWrGvOLuvHdfzuv7SRApyhZe1J3nsyDYokJ9Gh6EcaZmH8Uc8pbqFUInuMp8XpuHqjvj+7rM5RAOlF9dd5MkWhAxZy7s2aWAM8hEjYgVs6wGLv3fExZRaduIC8uyYu2kXtUgPqs7ij7g/+cIwdvooRtdR/Y+PZ9rOQ7NffCi71rlfcZcX9VPYki/QYqYeeytqjtqZQ7w4YS9bTBA6TrsnS+x4EFSOW3vvYXTYSose1ITxzU8I6yuFMLtN+9B4tTSVa3FLuXuoj49UhVzHPnGhG+lo8TOfZjSL//XlAigooagT4tHCM7KOPhI4Q2ok6Eu0/9okIt/FIYfTJhYO+9Pm3FNEGSicM=\"}"
+      parameters:
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Username
+          in: header
+          schema:
+            type: string
+          example: mifin_uat
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Bearer
+            eyJ4NXQiOiJPRFU0TVdJM01XUTFNalUwT0RnNVl6TTRPV05pTldaaE9UVXhZell3WldWa00yWmtPVGhtWW1FeFlXUTVPRFF6WWpJeVpUQXpaalZrTkRsaU5EWmxPQSIsImtpZCI6Ik9EVTRNV0kzTVdRMU1qVTBPRGc1WXpNNE9XTmlOV1poT1RVeFl6WXdaV1ZrTTJaa09UaG1ZbUV4WVdRNU9EUXpZakl5WlRBelpqVmtORGxpTkRabE9BX1JTMjU2IiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2ZDkwMTA4Yy1iMGE3LTRmZjAtOWIwZi0xYjA2MTdiN2NmYmIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiNHV6VWJRVVRjQVhCeVhvY0dBMHdGRGhBaHJ3YSIsIm5iZiI6MTcwOTcxNDgyNSwiYXpwIjoiNHV6VWJRVVRjQVhCeVhvY0dBMHdGRGhBaHJ3YSIsInNjb3BlIjoiZGVmYXVsdCIsImlzcyI6Imh0dHBzOlwvXC8xOTIuMTY4Ljg0LjE4MDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJpYXQiOjE3MDk3MTQ4MjUsImp0aSI6Ijg1NGU0NGNkLWFkMDUtNDY1OS05OTRiLWViYzNjMjZlY2VjZCIsImNsaWVudF9pZCI6IjR1elViUVVUY0FYQnlYb2NHQTB3RkRoQWhyd2EifQ.WxyG1QeCnnlEbYylXbbZTwRdQoxFG5r8HhadJFaO_k7O520B-wa8-jl2D06syADsPOurLumnY4zJrjlAbLoVLAA53jgAjFuLHsiw64DjfFURZIs7WmOS1nYpFrYg4fcmMcNR51WE2f3JFcqzNzMMC0xHC21Wwz2UtD3t0W1ELMUb1wctaH-L2go4filKOCE7Oki4S19HOcgisdwxk8VDjSIA8JCcSw-kcl8irnj92Ii_s_p-7TbYpI1V7FQEmjn83a3qCiLwG4KX3op3U_2tkhmJJlSXS2EGd94f5P_IY8q2vG5AHpnTRvgdkGyWq0WCEYZYCJt1ivJHsoEoU5Y_8g
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /esmicc/1.0.0/oauth2/token:
+    post:
+      tags:
+        - General
+      summary: Token
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  example: password
+                username:
+                  type: string
+                  example: mifin_uat
+                password:
+                  type: string
+                  example: Mifin@4321
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: >-
+            Basic
+            NHV6VWJRVVRjQVhCeVhvY0dBMHdGRGhBaHJ3YTpDUm1oRHpKWFpVVUNEZXFFd3NIR080ZXk0aHNh
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
